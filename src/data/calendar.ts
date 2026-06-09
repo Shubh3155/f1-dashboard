@@ -1,4 +1,4 @@
-export type RaceStatus = "completed" | "next" | "upcoming";
+export type RaceStatus = "completed" | "next" | "upcoming" | "cancelled";
 
 export interface Race {
   round: number;
@@ -44,8 +44,8 @@ export const calendar: Race[] = [
       qualifying: "2026-03-07T05:00:00Z",
       race: "2026-03-08T04:00:00Z",
     },
-    winner: "Kimi Antonelli",
-    winnerDriverId: "antonelli",
+    winner: "George Russell",
+    winnerDriverId: "russell",
   },
   {
     round: 2,
@@ -65,8 +65,8 @@ export const calendar: Race[] = [
       sprint: "2026-03-14T03:00:00Z",
       race: "2026-03-15T07:00:00Z",
     },
-    winner: "Lewis Hamilton",
-    winnerDriverId: "hamilton",
+    winner: "Kimi Antonelli",
+    winnerDriverId: "antonelli",
   },
   {
     round: 3,
@@ -90,52 +90,10 @@ export const calendar: Race[] = [
     winner: "Kimi Antonelli",
     winnerDriverId: "antonelli",
   },
+  // Bahrain GP — CANCELLED due to Middle East conflict
+  // Saudi Arabian GP — CANCELLED due to Middle East conflict
   {
     round: 4,
-    name: "Bahrain GP",
-    officialName: "FORMULA 1 BAHRAIN GRAND PRIX 2026",
-    circuitId: "bahrain",
-    circuitName: "Bahrain International Circuit",
-    locality: "Sakhir",
-    country: "Bahrain",
-    date: "2026-04-10",
-    dateEnd: "2026-04-12",
-    status: "completed",
-    isSprint: false,
-    sessions: {
-      fp1: "2026-04-10T11:30:00Z",
-      fp2: "2026-04-10T15:00:00Z",
-      fp3: "2026-04-11T11:30:00Z",
-      qualifying: "2026-04-11T15:00:00Z",
-      race: "2026-04-12T15:00:00Z",
-    },
-    winner: "George Russell",
-    winnerDriverId: "russell",
-  },
-  {
-    round: 5,
-    name: "Saudi Arabian GP",
-    officialName: "FORMULA 1 SAUDI ARABIAN GRAND PRIX 2026",
-    circuitId: "jeddah",
-    circuitName: "Jeddah Corniche Circuit",
-    locality: "Jeddah",
-    country: "Saudi Arabia",
-    date: "2026-04-17",
-    dateEnd: "2026-04-19",
-    status: "completed",
-    isSprint: false,
-    sessions: {
-      fp1: "2026-04-17T13:30:00Z",
-      fp2: "2026-04-17T17:00:00Z",
-      fp3: "2026-04-18T13:30:00Z",
-      qualifying: "2026-04-18T17:00:00Z",
-      race: "2026-04-19T17:00:00Z",
-    },
-    winner: "Lewis Hamilton",
-    winnerDriverId: "hamilton",
-  },
-  {
-    round: 6,
     name: "Miami GP",
     officialName: "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2026",
     circuitId: "miami",
@@ -156,7 +114,7 @@ export const calendar: Race[] = [
     winnerDriverId: "antonelli",
   },
   {
-    round: 7,
+    round: 5,
     name: "Canadian GP",
     officialName: "FORMULA 1 CANADIAN GRAND PRIX 2026",
     circuitId: "villeneuve",
@@ -174,11 +132,11 @@ export const calendar: Race[] = [
       qualifying: "2026-05-23T21:00:00Z",
       race: "2026-05-24T18:00:00Z",
     },
-    winner: "Charles Leclerc",
-    winnerDriverId: "leclerc",
+    winner: "Kimi Antonelli",
+    winnerDriverId: "antonelli",
   },
   {
-    round: 8,
+    round: 6,
     name: "Monaco GP",
     officialName: "FORMULA 1 GRAND PRIX DE MONACO 2026",
     circuitId: "monaco",
@@ -200,7 +158,7 @@ export const calendar: Race[] = [
     winnerDriverId: "antonelli",
   },
   {
-    round: 9,
+    round: 7,
     name: "Spanish GP",
     officialName: "FORMULA 1 SPANISH GRAND PRIX 2026",
     circuitId: "catalunya",
@@ -220,7 +178,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 10,
+    round: 8,
     name: "Austrian GP",
     officialName: "FORMULA 1 AUSTRIAN GRAND PRIX 2026",
     circuitId: "red_bull_ring",
@@ -240,7 +198,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 11,
+    round: 9,
     name: "British GP",
     officialName: "FORMULA 1 BRITISH GRAND PRIX 2026",
     circuitId: "silverstone",
@@ -260,7 +218,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 12,
+    round: 10,
     name: "Belgian GP",
     officialName: "FORMULA 1 BELGIAN GRAND PRIX 2026",
     circuitId: "spa",
@@ -279,7 +237,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 13,
+    round: 11,
     name: "Hungarian GP",
     officialName: "FORMULA 1 HUNGARIAN GRAND PRIX 2026",
     circuitId: "hungaroring",
@@ -299,7 +257,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 14,
+    round: 12,
     name: "Dutch GP",
     officialName: "FORMULA 1 DUTCH GRAND PRIX 2026",
     circuitId: "zandvoort",
@@ -319,7 +277,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 15,
+    round: 13,
     name: "Italian GP",
     officialName: "FORMULA 1 ITALIAN GRAND PRIX 2026",
     circuitId: "monza",
@@ -339,7 +297,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 16,
+    round: 14,
     name: "Madrid GP",
     officialName: "FORMULA 1 MADRID GRAND PRIX 2026",
     circuitId: "madrid",
@@ -359,7 +317,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 17,
+    round: 15,
     name: "Azerbaijan GP",
     officialName: "FORMULA 1 AZERBAIJAN GRAND PRIX 2026",
     circuitId: "baku",
@@ -379,7 +337,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 18,
+    round: 16,
     name: "Singapore GP",
     officialName: "FORMULA 1 SINGAPORE GRAND PRIX 2026",
     circuitId: "marina_bay",
@@ -399,7 +357,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 19,
+    round: 17,
     name: "United States GP",
     officialName: "FORMULA 1 UNITED STATES GRAND PRIX 2026",
     circuitId: "americas",
@@ -418,7 +376,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 20,
+    round: 18,
     name: "Mexico City GP",
     officialName: "FORMULA 1 MEXICO CITY GRAND PRIX 2026",
     circuitId: "rodriguez",
@@ -438,7 +396,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 21,
+    round: 19,
     name: "São Paulo GP",
     officialName: "FORMULA 1 SÃO PAULO GRAND PRIX 2026",
     circuitId: "interlagos",
@@ -457,7 +415,7 @@ export const calendar: Race[] = [
     },
   },
   {
-    round: 22,
+    round: 20,
     name: "Las Vegas GP",
     officialName: "FORMULA 1 LAS VEGAS GRAND PRIX 2026",
     circuitId: "vegas",
@@ -483,3 +441,4 @@ export const getCompletedRaces = () =>
   calendar.filter((r) => r.status === "completed");
 export const getUpcomingRaces = () =>
   calendar.filter((r) => r.status === "upcoming" || r.status === "next");
+export const getTotalRaces = () => calendar.length;

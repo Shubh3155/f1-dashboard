@@ -1,26 +1,522 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════
+   F1 2026 DESIGN SYSTEM — GLOBAL CSS
+   ═══════════════════════════════════════════════════════ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── F1 Brand Colors ── */
+  --f1-red: #e10600;
+  --f1-red-dark: #b30500;
+  --f1-red-glow: rgba(225, 6, 0, 0.4);
+  --carbon-black: #15151e;
+  --charcoal: #1f1f27;
+  --charcoal-light: #2a2a35;
+  --surface: #262630;
+  --surface-hover: #32323e;
+  --border-color: #38384a;
+  --border-subtle: #2d2d3a;
+  --pure-white: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --text-muted: #6b6b7b;
+  --gold: #ffd700;
+  --silver: #c0c0c0;
+  --bronze: #cd7f32;
+
+  /* ── Team Colors ── */
+  --team-mercedes: #27f4d2;
+  --team-ferrari: #e8002d;
+  --team-mclaren: #ff8000;
+  --team-red-bull: #3671c6;
+  --team-alpine: #ff87bc;
+  --team-racing-bulls: #6692ff;
+  --team-haas: #b6babd;
+  --team-williams: #1868db;
+  --team-audi: #00e701;
+  --team-aston-martin: #229971;
+  --team-cadillac: #ffd700;
+
+  /* ── Layout ── */
+  --navbar-height: 64px;
+  --sidebar-width: 340px;
+  --content-max-width: 1440px;
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ═══════════════════════════════════════════════════════
+   BASE RESET & TYPOGRAPHY
+   ═══════════════════════════════════════════════════════ */
+
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Titillium Web", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--carbon-black);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--carbon-black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--f1-red);
+}
+
+/* ═══════════════════════════════════════════════════════
+   F1 COMPONENT STYLES
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Carbon Fiber Background ── */
+.carbon-fiber {
+  background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.015) 2px,
+      rgba(255, 255, 255, 0.015) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.015) 2px,
+      rgba(255, 255, 255, 0.015) 4px
+    );
+}
+
+/* ── Glass Card ── */
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(31, 31, 39, 0.9) 0%,
+    rgba(38, 38, 48, 0.7) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: var(--border-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+/* ── F1 Section Header ── */
+.f1-header {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+}
+
+.f1-header-accent {
+  position: relative;
+  padding-left: 16px;
+}
+
+.f1-header-accent::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 70%;
+  background: var(--f1-red);
+  border-radius: 2px;
+}
+
+/* ── Racing Stripe ── */
+.racing-stripe {
+  background: linear-gradient(
+    90deg,
+    var(--f1-red) 0%,
+    var(--f1-red) 33%,
+    transparent 33%
+  );
+  height: 3px;
+}
+
+.racing-stripe-full {
+  background: var(--f1-red);
+  height: 3px;
+  border-radius: 2px;
+}
+
+/* ── Team Color Bar ── */
+.team-color-bar {
+  width: 4px;
+  border-radius: 2px;
+  min-height: 100%;
+}
+
+/* ── Position Badge ── */
+.position-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.position-badge.p1 {
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  color: #000;
+}
+.position-badge.p2 {
+  background: linear-gradient(135deg, #c0c0c0, #909090);
+  color: #000;
+}
+.position-badge.p3 {
+  background: linear-gradient(135deg, #cd7f32, #a0622c);
+  color: #000;
+}
+.position-badge.default {
+  background: var(--surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ── Stat Card ── */
+.stat-card {
+  background: var(--charcoal);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--f1-red);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card:hover::after {
+  opacity: 1;
+}
+
+/* ── Probability Bar ── */
+.probability-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--surface);
+  overflow: hidden;
+  position: relative;
+}
+
+.probability-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.probability-bar-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* ── Countdown ── */
+.countdown-digit {
+  background: var(--charcoal);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius);
+  padding: 8px 12px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.countdown-digit .value {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--pure-white);
+  line-height: 1;
+}
+
+.countdown-digit .label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+/* ── Navigation ── */
+.nav-link {
+  position: relative;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: var(--pure-white);
+  background: var(--surface);
+}
+
+.nav-link.active {
+  color: var(--pure-white);
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  background: var(--f1-red);
+  border-radius: 2px;
+}
+
+/* ── Race Status Indicator ── */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.live {
+  background: var(--f1-red);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.status-dot.completed {
+  background: #22c55e;
+}
+
+.status-dot.upcoming {
+  background: var(--text-muted);
+}
+
+/* ── Timeline ── */
+.timeline-connector {
+  width: 2px;
+  background: var(--border-subtle);
+  min-height: 40px;
+}
+
+.timeline-connector.active {
+  background: linear-gradient(180deg, var(--f1-red), var(--border-subtle));
+}
+
+/* ═══════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════ */
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--f1-red-glow);
+  }
+  50% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
+@keyframes pulse-red {
+  0%,
+  100% {
+    box-shadow: 0 0 20px var(--f1-red-glow);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--f1-red-glow), 0 0 60px rgba(225, 6, 0, 0.15);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes count-up {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes border-glow {
+  0%,
+  100% {
+    border-color: var(--border-subtle);
+  }
+  50% {
+    border-color: var(--f1-red);
+  }
+}
+
+/* ── Animation Utilities ── */
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out forwards;
+}
+
+.animate-pulse-red {
+  animation: pulse-red 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.animate-border-glow {
+  animation: border-glow 2s ease-in-out infinite;
+}
+
+/* ── Stagger children ── */
+.stagger-children > * {
+  opacity: 0;
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(9) { animation-delay: 0.45s; }
+.stagger-children > *:nth-child(10) { animation-delay: 0.5s; }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .countdown-digit .value {
+    font-size: 22px;
+  }
+
+  .countdown-digit {
+    min-width: 48px;
+    padding: 6px 8px;
+  }
 }

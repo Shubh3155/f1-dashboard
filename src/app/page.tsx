@@ -56,7 +56,7 @@ export default function Dashboard() {
       >
         <PredictionCard
           title="Spanish GP Winner"
-          subtitle="Round 9 • Barcelona-Catalunya • Jun 14"
+          subtitle="Round 7 • Barcelona-Catalunya • Jun 14"
           predictions={spanishGPPredictions}
         />
         <PredictionCard

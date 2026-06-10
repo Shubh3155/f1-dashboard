@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Clock, MapPin, ArrowRight } from "lucide-react";
 import { getNextRace } from "@/data/calendar";
@@ -24,7 +25,7 @@ export default function HeroSection() {
     return () => clearInterval(interval);
   }, [nextRace]);
 
-  const completedRaces = 8;
+  const completedRaces = 6;
   const totalRaces = 22;
   const progressPercent = (completedRaces / totalRaces) * 100;
 
@@ -226,9 +227,9 @@ export default function HeroSection() {
                 <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider">
                   Round {nextRace.round} of {totalRaces}
                 </span>
-                <div className="flex items-center gap-1 text-[var(--f1-red)] text-xs font-semibold uppercase tracking-wider cursor-pointer hover:gap-2 transition-all">
+                <Link href="/calendar" className="flex items-center gap-1 text-[var(--f1-red)] text-xs font-semibold uppercase tracking-wider hover:gap-2 transition-all">
                   Race Details <ArrowRight className="w-3.5 h-3.5" />
-                </div>
+                </Link>
               </div>
             </>
           )}

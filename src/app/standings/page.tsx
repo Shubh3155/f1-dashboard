@@ -36,7 +36,7 @@ export default function StandingsPage() {
           Championship <span className="text-[var(--f1-red)]">Standings</span>
         </h1>
         <p className="text-sm text-[var(--text-secondary)]">
-          2026 Season • After Round 8 — Monaco Grand Prix
+          2026 Season • After Round 6 — Monaco Grand Prix
         </p>
       </div>
 

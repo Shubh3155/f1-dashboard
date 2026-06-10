@@ -23,7 +23,7 @@ export const constructors: Constructor[] = [
     powerUnit: "Mercedes",
     points: 244,
     position: 1,
-    wins: 5,
+    wins: 6,
     drivers: ["antonelli", "russell"],
   },
   {
@@ -36,7 +36,7 @@ export const constructors: Constructor[] = [
     powerUnit: "Ferrari",
     points: 165,
     position: 2,
-    wins: 3,
+    wins: 0,
     drivers: ["hamilton", "leclerc"],
   },
   {

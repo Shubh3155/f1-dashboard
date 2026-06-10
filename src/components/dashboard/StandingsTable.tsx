@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { cn, getPositionSuffix } from "@/lib/utils";
 
 interface StandingsEntry {
@@ -109,9 +110,9 @@ export default function StandingsTable({ title, entries, type, showAll = false }
 
       {!showAll && entries.length > 10 && (
         <div className="p-3 text-center border-t border-[var(--border-subtle)]">
-          <span className="text-xs text-[var(--text-muted)] uppercase tracking-wider cursor-pointer hover:text-[var(--f1-red)] transition-colors">
+          <Link href="/standings" className="text-xs text-[var(--text-muted)] uppercase tracking-wider hover:text-[var(--f1-red)] transition-colors">
             View all {entries.length} {type === "driver" ? "drivers" : "constructors"}
-          </span>
+          </Link>
         </div>
       )}
     </div>

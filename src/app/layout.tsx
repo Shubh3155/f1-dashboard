@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
 
 export const metadata: Metadata = {
-  title: "F1 Analytics Dashboard | 2026 Season",
+  title: "F1-Sentinel | 2026 Season",
   description:
     "Real-time Formula 1 2026 analytics dashboard with ML-powered race predictions, live standings, interactive telemetry charts, and championship projections. Featuring all 11 teams and 22 drivers.",
   keywords: [

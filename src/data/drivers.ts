@@ -28,7 +28,7 @@ export const drivers: Driver[] = [
     teamColor: "#27F4D2",
     points: 156,
     position: 1,
-    wins: 4,
+    wins: 5,
     podiums: 7,
   },
   {
@@ -43,7 +43,7 @@ export const drivers: Driver[] = [
     teamColor: "#E8002D",
     points: 90,
     position: 2,
-    wins: 2,
+    wins: 0,
     podiums: 5,
   },
   {
@@ -73,7 +73,7 @@ export const drivers: Driver[] = [
     teamColor: "#E8002D",
     points: 75,
     position: 4,
-    wins: 1,
+    wins: 0,
     podiums: 4,
   },
   {

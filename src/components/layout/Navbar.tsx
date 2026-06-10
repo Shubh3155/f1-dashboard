@@ -46,7 +46,7 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-black tracking-wider text-white leading-none">
-                F1<span className="text-[var(--f1-red)]">.</span>ANALYTICS
+                F1<span className="text-[var(--f1-red)]">-</span>SENTINEL
               </span>
               <span className="text-[10px] text-[var(--text-muted)] uppercase tracking-[0.2em] leading-none mt-0.5">
                 2026 Season

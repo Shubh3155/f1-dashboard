@@ -101,7 +101,7 @@ export default function PredictionsPage() {
         >
           <PredictionCard
             title="Spanish GP Winner"
-            subtitle="Round 9 • Barcelona-Catalunya • Jun 14, 2026"
+            subtitle="Round 7 • Barcelona-Catalunya • Jun 14, 2026"
             predictions={raceWinnerPredictions}
           />
         </motion.div>

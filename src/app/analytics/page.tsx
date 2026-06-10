@@ -14,27 +14,23 @@ import { cn } from "@/lib/utils";
 
 // Points progression data (cumulative after each round)
 const pointsProgressionData = [
-  { race: "AUS", round: 1, ANT: 25, HAM: 18, RUS: 15, LEC: 12, PIA: 10, NOR: 8, VER: 6 },
-  { race: "CHN", round: 2, ANT: 43, HAM: 43, RUS: 30, LEC: 24, PIA: 22, NOR: 16, VER: 14 },
-  { race: "JPN", round: 3, ANT: 68, HAM: 55, RUS: 45, LEC: 36, PIA: 30, NOR: 26, VER: 20 },
-  { race: "BHR", round: 4, ANT: 86, HAM: 61, RUS: 70, LEC: 48, PIA: 38, NOR: 34, VER: 26 },
-  { race: "SAU", round: 5, ANT: 101, HAM: 79, RUS: 78, LEC: 56, PIA: 44, NOR: 40, VER: 32 },
-  { race: "MIA", round: 6, ANT: 126, HAM: 83, RUS: 82, LEC: 62, PIA: 52, NOR: 48, VER: 36 },
-  { race: "CAN", round: 7, ANT: 138, HAM: 84, RUS: 85, LEC: 75, PIA: 56, NOR: 52, VER: 40 },
-  { race: "MON", round: 8, ANT: 156, HAM: 90, RUS: 88, LEC: 75, PIA: 60, NOR: 58, VER: 43 },
+  { race: "AUS", round: 1, ANT: 18, HAM: 12, RUS: 25, LEC: 15, PIA: 10, NOR: 8, VER: 6 },
+  { race: "CHN", round: 2, ANT: 43, HAM: 22, RUS: 43, LEC: 27, PIA: 22, NOR: 16, VER: 14 },
+  { race: "JPN", round: 3, ANT: 68, HAM: 36, RUS: 55, LEC: 39, PIA: 30, NOR: 26, VER: 20 },
+  { race: "MIA", round: 4, ANT: 101, HAM: 52, RUS: 67, LEC: 51, PIA: 42, NOR: 38, VER: 28 },
+  { race: "CAN", round: 5, ANT: 126, HAM: 70, RUS: 76, LEC: 62, PIA: 52, NOR: 48, VER: 36 },
+  { race: "MON", round: 6, ANT: 156, HAM: 90, RUS: 88, LEC: 75, PIA: 60, NOR: 58, VER: 43 },
 ];
 
 // WDC prediction trend data
 const wdcTrendData = [
   { race: "Pre", ANT: 15, HAM: 22, RUS: 12, LEC: 18, NOR: 20, VER: 25 },
-  { race: "R1", ANT: 25, HAM: 18, RUS: 12, LEC: 15, NOR: 15, VER: 20 },
-  { race: "R2", ANT: 30, HAM: 22, RUS: 12, LEC: 12, NOR: 12, VER: 15 },
-  { race: "R3", ANT: 38, HAM: 18, RUS: 15, LEC: 10, NOR: 10, VER: 10 },
-  { race: "R4", ANT: 42, HAM: 16, RUS: 18, LEC: 9, NOR: 8, VER: 7 },
-  { race: "R5", ANT: 48, HAM: 17, RUS: 16, LEC: 8, NOR: 6, VER: 5 },
-  { race: "R6", ANT: 55, HAM: 16, RUS: 14, LEC: 7, NOR: 5, VER: 4 },
-  { race: "R7", ANT: 58, HAM: 15, RUS: 13, LEC: 8, NOR: 4, VER: 3 },
-  { race: "R8", ANT: 62, HAM: 15, RUS: 12, LEC: 7, NOR: 3, VER: 2 },
+  { race: "R1", ANT: 22, HAM: 18, RUS: 18, LEC: 15, NOR: 15, VER: 20 },
+  { race: "R2", ANT: 32, HAM: 15, RUS: 18, LEC: 12, NOR: 12, VER: 15 },
+  { race: "R3", ANT: 40, HAM: 14, RUS: 16, LEC: 10, NOR: 10, VER: 10 },
+  { race: "R4", ANT: 50, HAM: 13, RUS: 14, LEC: 9, NOR: 7, VER: 7 },
+  { race: "R5", ANT: 56, HAM: 14, RUS: 13, LEC: 8, NOR: 5, VER: 4 },
+  { race: "R6", ANT: 62, HAM: 15, RUS: 12, LEC: 7, NOR: 3, VER: 2 },
 ];
 
 // Constructor radar data
@@ -61,12 +57,13 @@ const selectedDriverCodes = ["ANT", "HAM", "RUS", "LEC", "PIA", "NOR", "VER"];
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
+    const sorted = [...payload].sort((a: any, b: any) => b.value - a.value);
     return (
       <div className="glass-card !rounded-lg p-3 border border-[var(--border-color)]"
         style={{ background: "rgba(31,31,39,0.95)", backdropFilter: "blur(10px)" }}
       >
         <p className="text-xs font-bold text-white mb-2 uppercase tracking-wider">{label}</p>
-        {payload.map((entry: any) => (
+        {sorted.map((entry: any) => (
           <div key={entry.dataKey} className="flex items-center gap-2 text-xs">
             <div className="w-2 h-2 rounded-full" style={{ background: entry.color }} />
             <span className="text-[var(--text-secondary)]">{entry.dataKey}:</span>
